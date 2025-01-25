@@ -51,7 +51,9 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
 
 # Set up config file
 COPY nginx.conf /etc/nginx/nginx.conf
-RUN mkdir -p /tmp/hls/live
+COPY stat.xsl /tmp/stat.xsl
+RUN mkdir -p /tmp/hls
+RUN mkdir -p /tmp/dash
 
 # RTMP
 EXPOSE 1935
